@@ -20,11 +20,12 @@ class LeagueTable
      */
     public function __construct(array $players)
     {
-        foreach($players as $player){
+        foreach($players as $idx => $player){
             $this->players[] = [
                 'name' => $player,
                 'result' => 0,
-                'games' => 0
+                'games' => 0,
+                'order' => $idx + 1
             ];
         }
     }
@@ -46,12 +47,13 @@ class LeagueTable
 
         usort($this->players, function($a, $b){
             if($a['result'] === $b['result']){
-                return $a['games'] < $b['games'];
+                if($a['games'] === $b['games']){
+                    return $a['order'] > $b['order'];
+                }
+                return $a['games'] > $b['games'];
             }
             return $b['result'] > $a['result'];
         });
-
-        var_dump($this->players);
     }
 
     /**
