@@ -3,7 +3,7 @@
     "description": "Test Winco",
     "autoload": {
         "psr-4": {
-          "Business\\": "business/"
+          "Helpers\\": "helpers/"
         }
     }
 }
