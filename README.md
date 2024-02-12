@@ -21,3 +21,9 @@ cd test-winco
 ```
 cp docker-compose.sample.yml docker-compose.yml
 ```
+- Check the port in docker-compose.yml file, if available port, continue in next step
+```
+    ports:
+      - '8000:80'
+```
+
