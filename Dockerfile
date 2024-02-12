@@ -1,4 +1,5 @@
 FROM php:8.1-rc-buster
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 COPY .docker/php.ini /usr/local/etc/php/php.ini
 COPY .docker/openssl.cnf /etc/ssl/openssl.cnf
@@ -11,5 +12,7 @@ WORKDIR /app
 
 RUN ln -s /usr/local/bin/php /usr/bin/php
 RUN chmod +x /usr/bin/php
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 CMD bash -c "php -S 0.0.0.0:80 -t public"
