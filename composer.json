@@ -1,0 +1,9 @@
+{
+    "name": "ertfly/test-winco",
+    "description": "Test Winco",
+    "autoload": {
+        "psr-4": {
+          "Business\\": "business/"
+        }
+    }
+}
