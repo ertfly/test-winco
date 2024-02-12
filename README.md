@@ -11,7 +11,7 @@
 git clone git@github.com:ertfly/test-winco.git
 ```
 
--- Access folder project
+- Access folder project
 ```
 cd test-winco
 ```
