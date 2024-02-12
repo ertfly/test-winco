@@ -48,3 +48,17 @@ php test-3.php
 ```
 
 ## Deploy without Docker
+- Unzip vendor.zip, this files contains autoload class for execution
+- Check version PHP is 8.1 or later
+- For format web, access folder project and execute this command, access your browser in port defined, example http://localhost:8000
+```
+php -S 0.0.0.0:8000 -t public
+```
+- For format command line execute this:
+```
+php test-1.php
+php test-2.php
+php test-3.php
+```
+
+### Thank you :D
