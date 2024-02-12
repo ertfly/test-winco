@@ -26,4 +26,11 @@ cp docker-compose.sample.yml docker-compose.yml
     ports:
       - '8000:80'
 ```
-
+- Build de container
+```
+docker-compose build
+```
+- Start container
+```
+docker-compose up
+```
