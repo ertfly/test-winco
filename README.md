@@ -34,3 +34,17 @@ docker-compose build
 ```
 docker-compose up
 ```
+- There are 2 test formats, one on the command line (test-1.php, test-2.php, test-3.php) and another on the web in the public folder.
+- For format web, access your localhost and port defined, in this example: http://localhost:8000
+- For format in command line, keep open this command, open new terminal in same folder and access container 
+```
+docker-compose exec web bash
+```
+- Execute tests by file
+```
+php test-1.php
+php test-2.php
+php test-3.php
+```
+
+## Deploy without Docker

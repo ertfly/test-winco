@@ -18,4 +18,4 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 COPY . .
 
-CMD bash -c "unzip vendor.zip && php -S 0.0.0.0:80 -t public"
+CMD bash -c "unzip -o vendor.zip && php -S 0.0.0.0:80 -t public"
