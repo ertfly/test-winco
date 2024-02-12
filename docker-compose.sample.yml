@@ -3,7 +3,6 @@ services:
   web:
     container_name: test.winco
     build: .
-    restart: always
     ports:
       - '8000:80'
     volumes:
