@@ -16,4 +16,8 @@ RUN chmod +x /usr/bin/php
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
+COPY . .
+
+RUN unzip vendor.zip
+
 CMD bash -c "php -S 0.0.0.0:80 -t public"
