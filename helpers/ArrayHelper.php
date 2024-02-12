@@ -25,6 +25,7 @@ class ArrayHelper
             }
         }
 
+        ksort($arr);
         return $arr;
     }
 }
