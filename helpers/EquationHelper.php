@@ -84,6 +84,8 @@ class EquationHelper
             }
         }
 
+        var_dump($equation);
+
         return $total + $base;
     }
 }
