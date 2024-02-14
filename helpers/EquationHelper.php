@@ -16,8 +16,9 @@ class EquationHelper
         $idx = -1;
         $size = strlen($exp);
         $operation = null;
-        $base = 0;
+        $base = null;
         $total = 0;
+        $resultEquation = null;
         for ($i = 0; $i < $size; $i++) {
             $char = $exp[$i];
             if ($char == ' ') {
@@ -33,6 +34,7 @@ class EquationHelper
                     if (!isset($equation[$idx]) || !is_null($operation)) {
                         return 'false';
                     }
+                    $resultEquation = $equation[$idx];
                     $idx--;
                     break;
                 case '+':
@@ -59,18 +61,28 @@ class EquationHelper
                     }
 
                     if ($operation == '+') {
-                        $base += $char;
+                        $add = is_null($resultEquation) ? $char : ($resultEquation + $char);
+                        if (is_null($base)) {
+                            $base = $add;
+                        } else {
+                            $base += $add;
+                        }
                         $operation = null;
+                        $resultEquation = null;
                     } else if ($operation == '-') {
-                        $base -= $char;
+                        $sub = is_null($resultEquation) ? $char : ($resultEquation - $char);
+                        if (is_null($base)) {
+                            $base = $sub;
+                        } else {
+                            $base -= $sub;
+                        }
                         $operation = null;
+                        $resultEquation = null;
                     } else {
                         $base = $char;
                     }
             }
         }
-
-        var_dump($equation);
 
         return $total + $base;
     }
