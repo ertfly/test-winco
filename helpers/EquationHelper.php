@@ -17,7 +17,6 @@ class EquationHelper
         $size = strlen($exp);
         $operation = null;
         $base = null;
-        $total = 0;
         $resultEquation = null;
         $backOperation = null;
         for ($i = 0; $i < $size; $i++) {
@@ -39,17 +38,19 @@ class EquationHelper
                     if (!isset($equation[$idx])) {
                         return 'false';
                     }
-                    if (!is_null($backOperation)) {
-                        $operation = $backOperation;
-                        $backOperation = null;
-                    }
                     $resultEquation = $equation[$idx];
                     $idx--;
-                    if ($idx > 0) {
-                        if ($operation == '+') {
-                            $equation[$idx] += $resultEquation;
-                        } else if ($operation == '-') {
-                            $equation[$idx] -= $resultEquation;
+                    if (!is_null($backOperation)) {;
+                        $operation = $backOperation;
+                        $backOperation = null;
+                        if ($idx > -1) {
+                            if ($operation == '+') {
+                                $equation[$idx] += $resultEquation;
+                            } else if ($operation == '-') {
+                                $equation[$idx] -= $resultEquation;
+                            }
+                            $operation = null;
+                            unset($equation[$idx + 1]);
                         }
                     }
                     break;
@@ -100,8 +101,6 @@ class EquationHelper
             }
         }
 
-        var_dump($equation);
-
-        return $total + $base;
+        return $base;
     }
 }
